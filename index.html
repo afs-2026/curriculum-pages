@@ -215,20 +215,56 @@
   .session-card:not([open])>.session-focus{display:grid!important}
   a{color:#000!important;text-decoration:none}
 }
-.document-chapter{scroll-margin-top:100px}
-.learner-overview h1{font-size:clamp(26px,3vw,36px);line-height:1.2}
+.document-chapter{margin:0;scroll-margin-top:100px}
+.document-chapter:not([hidden])~.document-chapter:not([hidden]){margin-top:48px}
+.learner-title{font-size:18px;line-height:1.3;margin:0 0 12px;max-width:36ch;min-width:0}
+.learner-tabs{flex:none}
+.learner-overview>h2,.pre-learning>h2,.environment-setup>h2{font-size:clamp(24px,2.5vw,32px);line-height:1.2;margin:0 0 12px}
 .learner-overview h2{font-size:22px;margin-top:32px}
+.learner-overview>h2{margin-top:0}
 .learner-stages{padding-left:24px;max-width:80ch}
 .learner-stages li{margin:16px 0}
 .learner-stages p{margin:4px 0}
 .learner-policy{max-width:80ch;margin:20px 0}
 .timetable-intro h2{font-size:clamp(24px,2.5vw,32px);margin:0 0 12px}
-@media screen and (max-width:760px){.document-chapter{scroll-margin-top:16px}}
-@media print{#timetable{break-before:page}}
+.learner-tabs a[aria-selected="true"]{background:var(--paper);color:var(--navy)}
+.pre-learning>p,.practice-note,.environment-setup>p{max-width:72ch}
+.pre-learning h3{font-size:22px;margin:36px 0 12px}
+.pre-learning h4{font-size:16px;margin:0 0 16px}
+.learning-resource-list{list-style:none;margin:0;padding:0}
+.learning-resource-list>li{border-top:1px solid var(--line);padding:28px 0;scroll-margin-top:100px}
+.learning-resource-list h3{margin:0 0 8px}
+.learning-resource-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:24px}
+.learning-resource-columns>section{margin:0;min-width:0}
+.learning-resource-columns>section:only-child{grid-column:1/-1}
+.learning-resource-list p{margin:0;max-width:72ch}
+.learning-resource-list ul{list-style:none;padding:0;margin:0;display:grid;gap:18px}
+.learning-resource-list ul li{min-width:0}
+.learning-resource-list a{color:#076e65;font-weight:650;text-underline-offset:3px;overflow-wrap:anywhere}
+.learning-resource-list a:hover{color:var(--navy)}
+.learning-resource-list a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.resource-language{display:block;color:var(--muted);font-size:13px;margin:3px 0 6px}
+@media screen and (max-width:1000px){
+  header{display:block}
+  .learner-title{max-width:none}
+}
+@media screen and (max-width:760px){
+  .document-chapter{scroll-margin-top:16px}
+  .learner-tabs{flex-wrap:nowrap;max-width:100%;overflow-x:auto}
+  .learner-tabs a{flex:none;padding:12px 10px;font-size:14px}
+  .learning-resource-list>li{scroll-margin-top:16px}
+  .learning-resource-columns{grid-template-columns:minmax(0,1fr);gap:28px}
+}
+@media print{
+  .learner-title{color:#000;max-width:none;font-size:20pt;margin:0 0 24px}
+  .document-chapter[hidden]{display:block!important}
+  #pre-learning,#environment-setup,#timetable{break-before:page}
+  .learning-resource-list>li{break-inside:avoid}
+}
 </style></head>
-<body><header><p class="eyebrow">Learner Guide · v1.0.0</p><nav aria-label="Main navigation"><a class="" href="#overview">Overview</a><a class="" href="#timetable">Timetable</a></nav></header>
+<body><header><h1 class="learner-title">2026 Graduate Engineering Bootcamp</h1><nav class="learner-tabs" aria-label="Learner guide sections"><a class="" href="#overview">Overview</a><a class="" href="#pre-learning">Pre-learning</a><a class="" href="#environment-setup">Environment Setup</a><a class="" href="#timetable">Timetable</a></nav></header>
 <main><section class="document-chapter" id="overview"><div class="learner-overview">
-  <h1>2026 Graduate Engineering Bootcamp</h1>
+  <h2>Overview</h2>
   <p class="timetable-date-range">26 October–20 November 2026 · 20 training days</p>
   <h2>Learning Path</h2>
   <ol class="learner-stages"><li><strong>Days 1–5 · Trustworthy Local Change</strong><p>Make a small code change understandable, bounded, tested, and reviewable.</p></li><li><strong>Days 6–10 · Vertical Change</strong><p>Extend local engineering judgment across UI, API, domain, and data boundaries.</p></li><li><strong>Days 11–13 · AI-Augmented Engineering</strong><p>Delegate implementation to AI without delegating engineering accountability.</p></li><li><strong>Days 14–20 · Team Product Delivery</strong><p>Discover, plan, deliver, learn from, and defend a validated product increment as a team.</p></li></ol>
@@ -238,7 +274,46 @@
   <p>“Controlled AI use” marks sessions where AI use is required within limits set by the instructor. Follow the instructor’s instructions for each activity.</p>
   <div class="learner-policy"><h3>Days 1–10</h3><p>Learners do most engineering work without AI. Only sessions marked Controlled AI use may use it. Day 10 permits bounded assistance for selected test moves and fixed browser-test generation. Learners choose the test mix and expected results, review assertions, decide any test removal, and judge the evidence. AI must not change product code or agreed behavior.</p></div><div class="learner-policy"><h3>Days 11–20</h3><p>AI is available throughout appropriate engineering work, subject to scope, permissions, checkpoints, and independent verification.</p></div>
 </div>
-</section><section class="document-chapter" id="timetable"><div class="timetable-intro"><h2>Timetable</h2><p class="timetable-date-range">26 October–20 November 2026 · China Standard Time (UTC+8)</p><p>Classes run Monday to Friday. Weekends are free of scheduled classes. Mondays start at 09:00; other days start at 08:40. Lunch is 12:00–13:30. Each day ends at 17:30.</p><p>All classes use this timetable. Class showcases allow for up to 4 groups. The final showcase brings all 10 teams together; teams present in sequence. Team numbers below show presentation order.</p></div>
+</section><section class="document-chapter" id="pre-learning"><div class="pre-learning">
+  <h2>Pre-learning</h2>
+  <p>Use these public resources to review the basics before the boot camp. Read only the listed topics. Environment preparation will be arranged separately.</p>
+  <p>Resource links need an internet connection.</p>
+  <p class="practice-note">Practice is optional. No submission or assessment is required.</p>
+  <ul class="learning-resource-list"><li id="pre-learning-java">
+  <h3>Java</h3>
+  <p>Basic types, conditions, loops, methods, simple classes and objects, List and Map, null values, and exceptions.</p>
+  <div class="learning-resource-columns">
+    <section><h4>Learning Materials</h4><ul><li><a href="https://dev.java/learn/" target="_blank" rel="noopener noreferrer">Oracle Java Tutorials</a><span class="resource-language">English</span><p>Read Language Basics and the basic parts of Object Oriented Programming. Under Collections and Streams, focus on List and Map. Skip streams and advanced topics.</p></li><li><a href="https://dev.java/learn/language/annotations-exceptions/exceptions/" target="_blank" rel="noopener noreferrer">Understand Java Exceptions</a><span class="resource-language">English</span><p>Read what an exception is and how try, catch, and throw work.</p></li></ul></section>
+    <section><h4>Practice More (Optional)</h4><ul><li><a href="https://codingbat.com/java" target="_blank" rel="noopener noreferrer">CodingBat Java</a><span class="resource-language">English</span><p>If useful, choose about six short problems from Warmup-1, Logic-1, Array-1, Warmup-2, and Map-1. These cover conditions, loops, arrays, and maps. Write code in the browser and use the test feedback to correct it.</p></li></ul></section>
+  </div>
+</li>
+<li id="pre-learning-html">
+  <h3>HTML</h3>
+  <p>Tags, attributes, nested elements, headings, lists, forms, labels, inputs, and buttons.</p>
+  <div class="learning-resource-columns">
+    <section><h4>Learning Materials</h4><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content" target="_blank" rel="noopener noreferrer">Read Basic HTML</a><span class="resource-language">Multilingual (opens in English)</span><p>Read basic HTML syntax, headings and paragraphs, and lists. Skip advanced topics.</p></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_forms" target="_blank" rel="noopener noreferrer">Read About Forms and Buttons</a><span class="resource-language">Multilingual (opens in English)</span><p>Focus on form, label, input, and button elements, input types, and label connections.</p></li></ul></section>
+    <section><h4>Practice More (Optional)</h4><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/Forms_and_buttons#forms_and_buttons_1" target="_blank" rel="noopener noreferrer">MDN Forms and Buttons — Task 1</a><span class="resource-language">Multilingual (opens in English)</span><p>Try task 1 only. Add two inputs, connect their labels, and add a submit button. Use the starting code and compare your result with the provided solution.</p></li></ul></section>
+  </div>
+</li>
+<li id="pre-learning-javascript">
+  <h3>JavaScript</h3>
+  <p>Variables, conditions, loops, functions, objects, arrays, map, and basic imports and exports.</p>
+  <div class="learning-resource-columns">
+    <section><h4>Learning Materials</h4><ul><li><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer">Modern JavaScript Tutorial</a><span class="resource-language">Multilingual (opens in English)</span><p>Read the matching topics under JavaScript Fundamentals, Objects, Arrays, Array Methods, and Export and Import. For array methods, focus on reading, changing, and mapping a list. Skip advanced language and browser topics.</p></li></ul></section>
+    <section><h4>Practice More (Optional)</h4><ul><li><a href="https://javascript.info/function-basics#tasks" target="_blank" rel="noopener noreferrer">Practice Functions</a><span class="resource-language">Multilingual (opens in English)</span><p>Choose one basic task at the end of the Functions chapter. Compare your answer with the solution.</p></li><li><a href="https://javascript.info/object#tasks" target="_blank" rel="noopener noreferrer">Practice Objects</a><span class="resource-language">Multilingual (opens in English)</span><p>Choose one basic task at the end of the Objects chapter. Compare your answer with the solution.</p></li><li><a href="https://javascript.info/array-methods#tasks" target="_blank" rel="noopener noreferrer">Practice Arrays</a><span class="resource-language">Multilingual (opens in English)</span><p>Try the Map to Names task. Convert an array of user objects into an array of names.</p></li></ul></section>
+  </div>
+</li>
+<li id="pre-learning-typescript">
+  <h3>TypeScript</h3>
+  <p>Basic types, object types, array types, function parameters, and return types.</p>
+  <div class="learning-resource-columns">
+    <section><h4>Learning Materials</h4><ul><li><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript Everyday Types</a><span class="resource-language">English</span><p>Read primitives, arrays, functions, object types, and type aliases. Focus on simple declarations. Skip advanced types.</p></li></ul></section>
+    <section><h4>Practice More (Optional)</h4><ul><li><a href="https://www.totaltypescript.com/tutorials/beginners-typescript" target="_blank" rel="noopener noreferrer">Total TypeScript Beginner Exercises</a><span class="resource-language">English</span><p>Try exercises 1, 2, 7, and 8 for function parameters, objects, arrays, and return types. Each has a problem and a solution. The full repository tests need a separate local setup.</p></li><li><a href="https://www.typescriptlang.org/play/" target="_blank" rel="noopener noreferrer">TypeScript Playground</a><span class="resource-language">English</span><p>Copy short exercise code into this online editor to check its types. Type checking does not run the full exercise tests.</p></li></ul></section>
+  </div>
+</li>
+</ul>
+</div>
+</section><section class="document-chapter" id="environment-setup"><div class="environment-setup"><h2>Environment Setup</h2><p>Environment setup instructions will be added here later.</p></div></section><section class="document-chapter" id="timetable"><div class="timetable-intro"><h2>Timetable</h2><p class="timetable-date-range">26 October–20 November 2026 · China Standard Time (UTC+8)</p><p>Classes run Monday to Friday. Weekends are free of scheduled classes. Mondays start at 09:00; other days start at 08:40. Lunch is 12:00–13:30. Each day ends at 17:30.</p><p>All classes use this timetable. Class showcases allow for up to 4 groups. The final showcase brings all 10 teams together; teams present in sequence. Team numbers below show presentation order.</p></div>
 <nav class="timetable-weeks" aria-label="Jump to a training week"><a href="#timetable-week-1"><strong>Week 1</strong><span>26 Oct–30 Oct</span></a><a href="#timetable-week-2"><strong>Week 2</strong><span>02 Nov–06 Nov</span></a><a href="#timetable-week-3"><strong>Week 3</strong><span>09 Nov–13 Nov</span></a><a href="#timetable-week-4"><strong>Week 4</strong><span>16 Nov–20 Nov</span></a></nav>
 <section class="timetable-week" id="timetable-week-1"><h2>Week 1 · 26 October–30 October</h2><section class="timetable-day" id="timetable-day-1">
   <div class="timetable-day-head"><div><h3>Day 1 · <time datetime="2026-10-26">Monday, 26 October</time></h3><p>What Does Correct Mean?</p></div><p class="timetable-day-budget">350 min learning · 50 min breaks · 20 min optional warm-up</p></div>
@@ -1117,4 +1192,69 @@
   
 </section>
 </section>
-</section></main></body></html>
+</section><script>
+  (() => {
+    const nav = document.querySelector('.learner-tabs');
+    if (!nav) return;
+    const tabs = Array.from(nav.querySelectorAll('a'));
+    const panels = tabs.map(tab => document.getElementById(tab.hash.slice(1)));
+    if (panels.some(panel => !panel)) return;
+    nav.setAttribute('role', 'tablist');
+    tabs.forEach((tab, index) => {
+      tab.id = 'learner-tab-' + panels[index].id;
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', panels[index].id);
+      panels[index].setAttribute('role', 'tabpanel');
+      panels[index].setAttribute('aria-labelledby', tab.id);
+      panels[index].tabIndex = 0;
+    });
+    function hashTarget() {
+      try { return document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+      catch { return null; }
+    }
+    function activate(panel) {
+      panels.forEach((item, index) => {
+        const selected = item === panel;
+        item.hidden = !selected;
+        tabs[index].setAttribute('aria-selected', String(selected));
+        tabs[index].tabIndex = selected ? 0 : -1;
+        tabs[index].classList.toggle('active', selected);
+      });
+    }
+    function followHash() {
+      const target = hashTarget();
+      const panel = target && target.closest('.document-chapter');
+      activate(panels.includes(panel) ? panel : panels[0]);
+      if (target && panel && panels.includes(panel)) {
+        requestAnimationFrame(() => target.scrollIntoView({block: 'start'}));
+      }
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', event => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        if (location.hash !== tab.hash) history.pushState(null, '', tab.hash);
+        activate(panels[index]);
+        window.scrollTo({top: 0, behavior: 'instant'});
+      });
+    });
+    nav.addEventListener('keydown', event => {
+      const index = tabs.indexOf(document.activeElement);
+      if (index < 0) return;
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else if (event.key === ' ') next = index;
+      else return;
+      event.preventDefault();
+      tabs[next].focus();
+      tabs[next].click();
+    });
+    window.addEventListener('hashchange', followHash);
+    window.addEventListener('popstate', followHash);
+    followHash();
+  })();
+</script>
+</main></body></html>
