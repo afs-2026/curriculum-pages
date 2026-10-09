@@ -222,11 +222,9 @@
 main:has(>#timetable:not([hidden])){max-width:1520px}
 .learner-overview>h2,.pre-learning>h2,.environment-setup>h2{font-size:clamp(24px,2.5vw,32px);line-height:1.2;margin:0 0 12px}
 .learner-overview h2{font-size:22px;margin-top:32px}
-.learner-overview>h2{margin-top:0}
-.learner-stages{padding-left:24px;max-width:80ch}
-.learner-stages li{margin:16px 0}
-.learner-stages p{margin:4px 0}
-.learner-policy{max-width:80ch;margin:20px 0}
+.learner-overview>h2:first-child{margin-top:0}
+.learner-overview .stage h3{font-size:22px;line-height:1.3;margin:8px 0}
+.learner-overview .stage p{margin-bottom:0}
 .timetable-intro h2{font-size:clamp(24px,2.5vw,32px);margin:0 0 12px}
 .learner-tabs a[aria-selected="true"]{background:var(--paper);color:var(--navy)}
 #timetable .timetable-week,#timetable .timetable-day{scroll-margin-top:var(--learner-anchor-offset,100px)}
@@ -338,12 +336,10 @@ main:has(>#timetable:not([hidden])){max-width:1520px}
   <h2>Overview</h2>
   <p class="timetable-date-range">26 October–20 November 2026 · 20 training days</p>
   <h2>Learning Path</h2>
-  <ol class="learner-stages"><li><strong>Days 1–5 · Trustworthy Local Change</strong><p>Make a small code change understandable, bounded, tested, and reviewable.</p></li><li><strong>Days 6–10 · Vertical Change</strong><p>Extend local engineering judgment across UI, API, domain, and data boundaries.</p></li><li><strong>Days 11–13 · AI-Augmented Engineering</strong><p>Delegate implementation to AI without delegating engineering accountability.</p></li><li><strong>Days 14–20 · Team Product Delivery</strong><p>Discover, plan, deliver, learn from, and defend a validated product increment as a team.</p></li></ol>
-  <h2>Class Hours</h2>
-  <p>Monday to Friday · China Standard Time (UTC+8). No scheduled classes on weekends.</p><p>Morning: 08:40–12:00 (Mondays: 09:00–12:00). Afternoon: 13:30–17:30.</p>
-  <h2>AI Use</h2>
+  <div class="stage-grid"><article class="stage"><div class="stage-days">Days 1–5</div><h3>Trustworthy Local Change</h3><p>Make a small code change understandable, bounded, tested, and reviewable.</p></article><article class="stage"><div class="stage-days">Days 6–10</div><h3>Vertical Change</h3><p>Extend local engineering judgment across UI, API, domain, and data boundaries.</p></article><article class="stage"><div class="stage-days">Days 11–13</div><h3>AI-Augmented Engineering</h3><p>Delegate implementation to AI without delegating engineering accountability.</p></article><article class="stage"><div class="stage-days">Days 14–20</div><h3>Team Product Delivery</h3><p>Discover, plan, deliver, learn from, and defend a validated product increment as a team.</p></article></div>
+  <h2>AI Use Policy</h2>
   <p>“Controlled AI use” marks sessions where AI use is required within limits set by the instructor. Follow the instructor’s instructions for each activity.</p>
-  <div class="learner-policy"><h3>Days 1–10</h3><p>Learners do most engineering work without AI. Only sessions marked Controlled AI use may use it. Day 10 permits bounded assistance for selected test moves and fixed browser-test generation. Learners choose the test mix and expected results, review assertions, decide any test removal, and judge the evidence. AI must not change product code or agreed behavior.</p></div><div class="learner-policy"><h3>Days 11–20</h3><p>AI is available throughout appropriate engineering work, subject to scope, permissions, checkpoints, and independent verification.</p></div>
+  <div class="policy-grid"><article class="policy"><strong>Days 1–10 · No AI by default</strong><p>Learners do most engineering work without AI. Only sessions marked Controlled AI use may use it. Day 10 permits bounded assistance for selected test moves and fixed browser-test generation. Learners choose the test mix and expected results, review assertions, decide any test removal, and judge the evidence. AI must not change product code or agreed behavior.</p></article><article class="policy"><strong>Days 11–20 · AI enabled</strong><p>AI is available throughout appropriate engineering work, subject to scope, permissions, checkpoints, and independent verification.</p></article></div>
 </div>
 </section><section class="document-chapter" id="pre-learning"><div class="pre-learning">
   <h2>Pre-learning</h2>
