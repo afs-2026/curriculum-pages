@@ -228,6 +228,24 @@
 .learner-policy{max-width:80ch;margin:20px 0}
 .timetable-intro h2{font-size:clamp(24px,2.5vw,32px);margin:0 0 12px}
 .learner-tabs a[aria-selected="true"]{background:var(--paper);color:var(--navy)}
+#timetable .timetable-week,#timetable .timetable-day{scroll-margin-top:var(--learner-anchor-offset,100px)}
+#timetable .timetable-week{margin:0}
+.learner-timetable-nav{margin:24px 0 36px;padding:10px 0 12px;background:var(--paper);border-bottom:1px solid var(--line)}
+.learner-timetable-nav[data-enhanced]{position:sticky;top:var(--learner-header-offset,0px);z-index:2}
+.learner-week-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.learner-week-links{flex:1;flex-wrap:nowrap;gap:4px;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--teal) var(--soft)}
+.learner-week-links a,.learner-today{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border-radius:6px;color:var(--navy);font-size:14px;font-weight:650;text-decoration:none;white-space:nowrap}
+.learner-week-links a[aria-current]{background:var(--navy);color:#fff}
+.learner-today{flex:none;color:#076e65;text-decoration:underline;text-underline-offset:3px}
+.learner-day-links{display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;padding:3px;scrollbar-width:thin;scrollbar-color:var(--teal) var(--soft);overscroll-behavior-x:contain}
+.learner-day-links a{display:grid;flex:1 0 112px;gap:2px;padding:9px 12px;border:1px solid var(--line);border-radius:6px;color:var(--ink);text-decoration:none;font-variant-numeric:tabular-nums}
+.learner-day-links time{font-size:13px;color:var(--muted);white-space:nowrap}
+.learner-day-links a[aria-current]{border-color:var(--teal);background:var(--soft);box-shadow:inset 0 -3px var(--teal)}
+.learner-day-links a[aria-current] strong{color:#076e65}
+.learner-day-links a[aria-current] time{color:#42574e}
+.learner-day-links a:hover,.learner-today:hover{background:var(--soft);color:var(--navy)}
+.learner-week-links a:focus-visible,.learner-day-links a:focus-visible,.learner-today:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.learner-timetable-nav [hidden]{display:none!important}
 .pre-learning>p,.practice-note,.environment-setup>p{max-width:72ch}
 .pre-learning h3{font-size:22px;margin:36px 0 12px}
 .pre-learning h4{font-size:16px;margin:0 0 16px}
@@ -252,12 +270,19 @@
   .document-chapter{scroll-margin-top:16px}
   .learner-tabs{flex-wrap:nowrap;max-width:100%;overflow-x:auto}
   .learner-tabs a{flex:none;padding:12px 10px;font-size:14px}
+  .learner-week-links{gap:0}
+  .learner-week-links a,.learner-today{padding:8px 4px;font-size:13px}
+  .learner-week-row{gap:4px;margin-bottom:4px}
+  .learner-day-links{gap:6px}
+  .learner-day-links a{flex-basis:104px;padding:7px 10px}
   .learning-resource-list>li{scroll-margin-top:16px}
   .learning-resource-columns{grid-template-columns:minmax(0,1fr);gap:28px}
 }
 @media print{
   .learner-title{color:#000;max-width:none;font-size:20pt;margin:0 0 24px}
   .document-chapter[hidden]{display:block!important}
+  .learner-timetable-nav{display:none!important}
+  .learner-day-context{position:static;display:block;width:auto;height:auto;margin:0 0 4px;overflow:visible;clip:auto;white-space:normal;font-size:13px;font-weight:400}
   #pre-learning,#environment-setup,#timetable{break-before:page}
   .learning-resource-list>li{break-inside:avoid}
 }
@@ -314,9 +339,16 @@
 </ul>
 </div>
 </section><section class="document-chapter" id="environment-setup"><div class="environment-setup"><h2>Environment Setup</h2><p>Environment setup instructions will be added here later.</p></div></section><section class="document-chapter" id="timetable"><div class="timetable-intro"><h2>Timetable</h2><p class="timetable-date-range">26 October–20 November 2026 · China Standard Time (UTC+8)</p><p>Classes run Monday to Friday. Weekends are free of scheduled classes. Mondays start at 09:00; other days start at 08:40. Lunch is 12:00–13:30. Each day ends at 17:30.</p><p>All classes use this timetable. Class showcases allow for up to 4 groups. The final showcase brings all 10 teams together; teams present in sequence. Team numbers below show presentation order.</p></div>
-<nav class="timetable-weeks" aria-label="Jump to a training week"><a href="#timetable-week-1"><strong>Week 1</strong><span>26 Oct–30 Oct</span></a><a href="#timetable-week-2"><strong>Week 2</strong><span>02 Nov–06 Nov</span></a><a href="#timetable-week-3"><strong>Week 3</strong><span>09 Nov–13 Nov</span></a><a href="#timetable-week-4"><strong>Week 4</strong><span>16 Nov–20 Nov</span></a></nav>
-<section class="timetable-week" id="timetable-week-1"><h2>Week 1 · 26 October–30 October</h2><section class="timetable-day" id="timetable-day-1">
-  <div class="timetable-day-head"><div><h3>Day 1 · <time datetime="2026-10-26">Monday, 26 October</time></h3><p>What Does Correct Mean?</p></div><p class="timetable-day-budget">350 min learning · 50 min breaks · 20 min optional warm-up</p></div>
+<div class="learner-timetable-nav">
+  <div class="learner-week-row">
+    <nav class="learner-week-links" aria-label="Jump to a training week"><a href="#timetable-week-1">Week 1</a><a href="#timetable-week-2">Week 2</a><a href="#timetable-week-3">Week 3</a><a href="#timetable-week-4">Week 4</a></nav>
+    <a class="learner-today" href="#timetable" hidden>Today</a>
+  </div>
+  <nav class="learner-day-links" data-week="timetable-week-1" aria-label="Days in Week 1"><a href="#timetable-day-1" aria-label="Day 1, Monday, 26 October 2026"><strong>Day 1</strong><time datetime="2026-10-26">Mon 26 Oct</time></a><a href="#timetable-day-2" aria-label="Day 2, Tuesday, 27 October 2026"><strong>Day 2</strong><time datetime="2026-10-27">Tue 27 Oct</time></a><a href="#timetable-day-3" aria-label="Day 3, Wednesday, 28 October 2026"><strong>Day 3</strong><time datetime="2026-10-28">Wed 28 Oct</time></a><a href="#timetable-day-4" aria-label="Day 4, Thursday, 29 October 2026"><strong>Day 4</strong><time datetime="2026-10-29">Thu 29 Oct</time></a><a href="#timetable-day-5" aria-label="Day 5, Friday, 30 October 2026"><strong>Day 5</strong><time datetime="2026-10-30">Fri 30 Oct</time></a></nav><nav class="learner-day-links" data-week="timetable-week-2" aria-label="Days in Week 2"><a href="#timetable-day-6" aria-label="Day 6, Monday, 02 November 2026"><strong>Day 6</strong><time datetime="2026-11-02">Mon 02 Nov</time></a><a href="#timetable-day-7" aria-label="Day 7, Tuesday, 03 November 2026"><strong>Day 7</strong><time datetime="2026-11-03">Tue 03 Nov</time></a><a href="#timetable-day-8" aria-label="Day 8, Wednesday, 04 November 2026"><strong>Day 8</strong><time datetime="2026-11-04">Wed 04 Nov</time></a><a href="#timetable-day-9" aria-label="Day 9, Thursday, 05 November 2026"><strong>Day 9</strong><time datetime="2026-11-05">Thu 05 Nov</time></a><a href="#timetable-day-10" aria-label="Day 10, Friday, 06 November 2026"><strong>Day 10</strong><time datetime="2026-11-06">Fri 06 Nov</time></a></nav><nav class="learner-day-links" data-week="timetable-week-3" aria-label="Days in Week 3"><a href="#timetable-day-11" aria-label="Day 11, Monday, 09 November 2026"><strong>Day 11</strong><time datetime="2026-11-09">Mon 09 Nov</time></a><a href="#timetable-day-12" aria-label="Day 12, Tuesday, 10 November 2026"><strong>Day 12</strong><time datetime="2026-11-10">Tue 10 Nov</time></a><a href="#timetable-day-13" aria-label="Day 13, Wednesday, 11 November 2026"><strong>Day 13</strong><time datetime="2026-11-11">Wed 11 Nov</time></a><a href="#timetable-day-14" aria-label="Day 14, Thursday, 12 November 2026"><strong>Day 14</strong><time datetime="2026-11-12">Thu 12 Nov</time></a><a href="#timetable-day-15" aria-label="Day 15, Friday, 13 November 2026"><strong>Day 15</strong><time datetime="2026-11-13">Fri 13 Nov</time></a></nav><nav class="learner-day-links" data-week="timetable-week-4" aria-label="Days in Week 4"><a href="#timetable-day-16" aria-label="Day 16, Monday, 16 November 2026"><strong>Day 16</strong><time datetime="2026-11-16">Mon 16 Nov</time></a><a href="#timetable-day-17" aria-label="Day 17, Tuesday, 17 November 2026"><strong>Day 17</strong><time datetime="2026-11-17">Tue 17 Nov</time></a><a href="#timetable-day-18" aria-label="Day 18, Wednesday, 18 November 2026"><strong>Day 18</strong><time datetime="2026-11-18">Wed 18 Nov</time></a><a href="#timetable-day-19" aria-label="Day 19, Thursday, 19 November 2026"><strong>Day 19</strong><time datetime="2026-11-19">Thu 19 Nov</time></a><a href="#timetable-day-20" aria-label="Day 20, Friday, 20 November 2026"><strong>Day 20</strong><time datetime="2026-11-20">Fri 20 Nov</time></a></nav>
+</div>
+
+<section class="timetable-week" id="timetable-week-1"><h2 class="sr-only">Week 1 · 26 October–30 October</h2><section class="timetable-day" id="timetable-day-1" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 1 · <time datetime="2026-10-26">Monday, 26 October</time></span> What Does Correct Mean?</h3></div><p class="timetable-day-budget">350 min learning · 50 min breaks · 20 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 1 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>09:00–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">09:00–10:00</span><span class="timetable-duration">60 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type lecture">lecture</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Opening</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -362,8 +394,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-2">
-  <div class="timetable-day-head"><div><h3>Day 2 · <time datetime="2026-10-27">Tuesday, 27 October</time></h3><p>Review What Changed</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-2" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 2 · <time datetime="2026-10-27">Tuesday, 27 October</time></span> Review What Changed</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 2 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -411,8 +443,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-3">
-  <div class="timetable-day-head"><div><h3>Day 3 · <time datetime="2026-10-28">Wednesday, 28 October</time></h3><p>How Do I Change Code Safely?</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-3" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 3 · <time datetime="2026-10-28">Wednesday, 28 October</time></span> How Do I Change Code Safely?</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 3 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -458,8 +490,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-4">
-  <div class="timetable-day-head"><div><h3>Day 4 · <time datetime="2026-10-29">Thursday, 29 October</time></h3><p>Understand Before You Change</p></div><p class="timetable-day-budget">380 min learning · 40 min breaks · 20 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-4" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 4 · <time datetime="2026-10-29">Thursday, 29 October</time></span> Understand Before You Change</h3></div><p class="timetable-day-budget">380 min learning · 40 min breaks · 20 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 4 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -501,8 +533,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-5">
-  <div class="timetable-day-head"><div><h3>Day 5 · <time datetime="2026-10-30">Friday, 30 October</time></h3><p>Find and Fix a Defect with Evidence</p></div><p class="timetable-day-budget">380 min learning · 40 min breaks · 20 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-5" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 5 · <time datetime="2026-10-30">Friday, 30 October</time></span> Find and Fix a Defect with Evidence</h3></div><p class="timetable-day-budget">380 min learning · 40 min breaks · 20 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 5 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -544,8 +576,8 @@
 </tbody></table>
   
 </section>
-</section><section class="timetable-week" id="timetable-week-2"><h2>Week 2 · 02 November–06 November</h2><section class="timetable-day" id="timetable-day-6">
-  <div class="timetable-day-head"><div><h3>Day 6 · <time datetime="2026-11-02">Monday, 02 November</time></h3><p>Design and Test an HTTP API</p></div><p class="timetable-day-budget">380 min learning · 40 min breaks</p></div>
+</section><section class="timetable-week" id="timetable-week-2"><h2 class="sr-only">Week 2 · 02 November–06 November</h2><section class="timetable-day" id="timetable-day-6" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 6 · <time datetime="2026-11-02">Monday, 02 November</time></span> Design and Test an HTTP API</h3></div><p class="timetable-day-budget">380 min learning · 40 min breaks</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 6 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>09:00–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">09:00–09:15</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -591,8 +623,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-7">
-  <div class="timetable-day-head"><div><h3>Day 7 · <time datetime="2026-11-03">Tuesday, 03 November</time></h3><p>Where Does State Live?</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-7" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 7 · <time datetime="2026-11-03">Tuesday, 03 November</time></span> Where Does State Live?</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 7 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -640,8 +672,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-8">
-  <div class="timetable-day-head"><div><h3>Day 8 · <time datetime="2026-11-04">Wednesday, 04 November</time></h3><p>Build and Explain an Interactive UI</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-8" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 8 · <time datetime="2026-11-04">Wednesday, 04 November</time></span> Build and Explain an Interactive UI</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 8 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -683,8 +715,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-9">
-  <div class="timetable-day-head"><div><h3>Day 9 · <time datetime="2026-11-05">Thursday, 05 November</time></h3><p>Connect the UI and Check the Whole Behavior</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-9" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 9 · <time datetime="2026-11-05">Thursday, 05 November</time></span> Connect the UI and Check the Whole Behavior</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 9 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -734,8 +766,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-10">
-  <div class="timetable-day-head"><div><h3>Day 10 · <time datetime="2026-11-06">Friday, 06 November</time></h3><p>Build a Balanced Test Mix</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-10" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 10 · <time datetime="2026-11-06">Friday, 06 November</time></span> Build a Balanced Test Mix</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 10 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -783,8 +815,8 @@
 </tbody></table>
   
 </section>
-</section><section class="timetable-week" id="timetable-week-3"><h2>Week 3 · 09 November–13 November</h2><section class="timetable-day" id="timetable-day-11">
-  <div class="timetable-day-head"><div><h3>Day 11 · <time datetime="2026-11-09">Monday, 09 November</time></h3><p>Define and Approve a Small Change (P1–P2 / G1)</p></div><p class="timetable-day-budget">375 min learning · 40 min breaks</p></div>
+</section><section class="timetable-week" id="timetable-week-3"><h2 class="sr-only">Week 3 · 09 November–13 November</h2><section class="timetable-day" id="timetable-day-11" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 11 · <time datetime="2026-11-09">Monday, 09 November</time></span> Define and Approve a Small Change (P1–P2 / G1)</h3></div><p class="timetable-day-budget">375 min learning · 40 min breaks</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 11 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>09:00–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">09:00–09:15</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -826,8 +858,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-12">
-  <div class="timetable-day-head"><div><h3>Day 12 · <time datetime="2026-11-10">Tuesday, 10 November</time></h3><p>Plan and Implement a Small Change with AI (P3–P4)</p></div><p class="timetable-day-budget">375 min learning · 40 min breaks · 20 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-12" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 12 · <time datetime="2026-11-10">Tuesday, 10 November</time></span> Plan and Implement a Small Change with AI (P3–P4)</h3></div><p class="timetable-day-budget">375 min learning · 40 min breaks · 20 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 12 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -871,8 +903,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-13">
-  <div class="timetable-day-head"><div><h3>Day 13 · <time datetime="2026-11-11">Wednesday, 11 November</time></h3><p>Verify Changes and Keep the Specification Current (G2–P5 / G3)</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-13" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 13 · <time datetime="2026-11-11">Wednesday, 11 November</time></span> Verify Changes and Keep the Specification Current (G2–P5 / G3)</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 13 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -916,8 +948,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-14">
-  <div class="timetable-day-head"><div><h3>Day 14 · <time datetime="2026-11-12">Thursday, 12 November</time></h3><p>From Individual Change to Team Product Delivery</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-14" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 14 · <time datetime="2026-11-12">Thursday, 12 November</time></span> From Individual Change to Team Product Delivery</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 14 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -961,8 +993,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-15">
-  <div class="timetable-day-head"><div><h3>Day 15 · <time datetime="2026-11-13">Friday, 13 November</time></h3><p>Project Inception and Iteration 0</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-15" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 15 · <time datetime="2026-11-13">Friday, 13 November</time></span> Project Inception and Iteration 0</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 15 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -1002,8 +1034,8 @@
 </tbody></table>
   
 </section>
-</section><section class="timetable-week" id="timetable-week-4"><h2>Week 4 · 16 November–20 November</h2><section class="timetable-day" id="timetable-day-16">
-  <div class="timetable-day-head"><div><h3>Day 16 · <time datetime="2026-11-16">Monday, 16 November</time></h3><p>Iteration 1 — First Thin Slice</p></div><p class="timetable-day-budget">375 min learning · 40 min breaks</p></div>
+</section><section class="timetable-week" id="timetable-week-4"><h2 class="sr-only">Week 4 · 16 November–20 November</h2><section class="timetable-day" id="timetable-day-16" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 16 · <time datetime="2026-11-16">Monday, 16 November</time></span> Iteration 1 — First Thin Slice</h3></div><p class="timetable-day-budget">375 min learning · 40 min breaks</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 16 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>09:00–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">09:00–09:15</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Stand-up and Update the Team Board</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -1039,8 +1071,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-17">
-  <div class="timetable-day-head"><div><h3>Day 17 · <time datetime="2026-11-17">Tuesday, 17 November</time></h3><p>Iteration 1 — Deliver and Learn</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-17" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 17 · <time datetime="2026-11-17">Tuesday, 17 November</time></span> Iteration 1 — Deliver and Learn</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 17 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Stand-up and Update the Iteration Plan</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -1076,8 +1108,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-18">
-  <div class="timetable-day-head"><div><h3>Day 18 · <time datetime="2026-11-18">Wednesday, 18 November</time></h3><p>Iteration 2 — Re-plan from Feedback</p></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-18" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 18 · <time datetime="2026-11-18">Wednesday, 18 November</time></span> Iteration 2 — Re-plan from Feedback</h3></div><p class="timetable-day-budget">375 min learning · 50 min breaks · 15 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 18 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Stand-up and Update the Team Board</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -1115,8 +1147,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-19">
-  <div class="timetable-day-head"><div><h3>Day 19 · <time datetime="2026-11-19">Thursday, 19 November</time></h3><p>Iteration 2 — Stabilize and Integrate</p></div><p class="timetable-day-budget">375 min learning · 40 min breaks · 20 min optional warm-up</p></div>
+<section class="timetable-day" id="timetable-day-19" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 19 · <time datetime="2026-11-19">Thursday, 19 November</time></span> Iteration 2 — Stabilize and Integrate</h3></div><p class="timetable-day-budget">375 min learning · 40 min breaks · 20 min optional warm-up</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 19 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Stand-up and Confirm Final Scope</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -1150,8 +1182,8 @@
 </tbody></table>
   
 </section>
-<section class="timetable-day" id="timetable-day-20">
-  <div class="timetable-day-head"><div><h3>Day 20 · <time datetime="2026-11-20">Friday, 20 November</time></h3><p>Final Validation, Showcase, and Accountability</p></div><p class="timetable-day-budget">410 min learning · 20 min breaks · 10 min ceremony</p></div>
+<section class="timetable-day" id="timetable-day-20" tabindex="-1">
+  <div class="timetable-day-head"><div><h3><span class="sr-only learner-day-context">Day 20 · <time datetime="2026-11-20">Friday, 20 November</time></span> Final Validation, Showcase, and Accountability</h3></div><p class="timetable-day-budget">410 min learning · 20 min breaks · 10 min ceremony</p></div>
   <table role="table" class="timetable-table"><caption class="sr-only">Day 20 timetable</caption><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Time / Duration</th><th role="columnheader" scope="col">Type</th><th role="columnheader" scope="col">Activity</th></tr></thead><tbody role="rowgroup"><tr role="row" class="timetable-period timetable-period-morning"><th role="rowheader" scope="row" colspan="3"><strong>Morning</strong><span>08:40–12:00</span></th></tr>
 <tr role="row" class="timetable-row timetable-session"><td role="cell" class="timetable-time"><span class="timetable-time-range">08:40–08:55</span><span class="timetable-duration">15 min</span></td><td role="cell" class="timetable-type"><div class="timetable-metadata"><span class="type practice">practice</span></div></td><td role="cell" class="timetable-activity"><div class="timetable-title"><strong>Standup Meeting</strong></div><div class="timetable-row-note"></div></td></tr>
 
@@ -1220,6 +1252,7 @@
         tabs[index].tabIndex = selected ? 0 : -1;
         tabs[index].classList.toggle('active', selected);
       });
+      document.dispatchEvent(new Event('learner-panel-change'));
     }
     function followHash() {
       const target = hashTarget();
@@ -1257,4 +1290,121 @@
     followHash();
   })();
 </script>
-</main></body></html>
+<script>// Embedded in the standalone learner guide; no network or storage is needed.
+(() => {
+  const panel = document.getElementById('timetable');
+  const nav = panel && panel.querySelector('.learner-timetable-nav');
+  if (!nav) return;
+  const header = document.querySelector('header');
+  const groups = Array.from(nav.querySelectorAll('.learner-day-links'));
+  const weeks = Array.from(nav.querySelectorAll('.learner-week-links a'));
+  const links = Array.from(nav.querySelectorAll('.learner-day-links a'));
+  const days = links.map(link => document.getElementById(link.hash.slice(1)));
+  const today = nav.querySelector('.learner-today');
+  if (!days.length || days.some(day => !day)) return;
+  // The first day includes the week boundary, even without a visible heading.
+  const dayStarts = days.map(day => {
+    const week = day.closest('.timetable-week');
+    return week && week.querySelector('.timetable-day') === day ? week : day;
+  });
+  let current = null;
+  let frame = null;
+
+  function revealDate(link) {
+    const group = link.parentElement;
+    const left = link.getBoundingClientRect().left - group.getBoundingClientRect().left + group.scrollLeft;
+    if (left < group.scrollLeft) group.scrollLeft = Math.max(0, left - 3);
+    else if (left + link.offsetWidth > group.scrollLeft + group.clientWidth) {
+      group.scrollLeft = left + link.offsetWidth - group.clientWidth + 3;
+    }
+  }
+
+  function selectDay(day) {
+    const selected = links[days.indexOf(day)];
+    if (current === day) { revealDate(selected); return; }
+    current = day;
+    const group = selected.parentElement;
+    // Keep keyboard focus visible when scrolling changes the displayed week.
+    const focused = document.activeElement;
+    const restoreFocus = groups.some(item => item !== group && item.contains(focused));
+    groups.forEach(item => { item.hidden = item !== group; });
+    weeks.forEach(link => {
+      if (link.hash === '#' + group.dataset.week) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+    links.forEach(link => {
+      if (link === selected) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    revealDate(selected);
+    if (restoreFocus) selected.focus({preventScroll: true});
+  }
+
+  function measure() {
+    if (panel.hidden) return;
+    const headerHeight = header && getComputedStyle(header).position === 'sticky' ? header.getBoundingClientRect().height : 0;
+    panel.style.setProperty('--learner-header-offset', headerHeight + 'px');
+    panel.style.setProperty('--learner-anchor-offset', (headerHeight + nav.getBoundingClientRect().height + 16) + 'px');
+  }
+
+  function update() {
+    frame = null;
+    if (panel.hidden) return;
+    measure();
+    const line = nav.getBoundingClientRect().bottom + 24;
+    let active = days[0];
+    for (const [index, day] of days.entries()) {
+      if (dayStarts[index].getBoundingClientRect().top > line) break;
+      active = day;
+    }
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) active = days[days.length - 1];
+    selectDay(active);
+  }
+
+  function scheduleUpdate() {
+    if (frame === null) frame = requestAnimationFrame(update);
+  }
+
+  function followTarget() {
+    if (panel.hidden) return;
+    let target;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+    catch { return; }
+    const day = target && (target.closest('.timetable-day') || target.querySelector('.timetable-day'));
+    if (days.includes(day)) selectDay(day);
+    measure();
+    scheduleUpdate();
+  }
+
+  function updateToday() {
+    const parts = new Intl.DateTimeFormat('en', {
+      timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(new Date());
+    const date = ['year', 'month', 'day'].map(type => parts.find(part => part.type === type).value).join('-');
+    const link = links.find(item => item.querySelector('time').dateTime === date);
+    today.hidden = !link;
+    if (link) today.href = link.hash;
+  }
+
+  nav.setAttribute('data-enhanced', '');
+  selectDay(days[0]);
+  updateToday();
+  followTarget();
+  measure();
+  // Native anchor links provide history, deep links, and keyboard navigation.
+  window.addEventListener('scroll', scheduleUpdate, {passive: true});
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('hashchange', followTarget);
+  window.addEventListener('popstate', followTarget);
+  window.addEventListener('pageshow', () => { updateToday(); scheduleUpdate(); });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) { updateToday(); scheduleUpdate(); }
+  });
+  document.addEventListener('learner-panel-change', () => { measure(); scheduleUpdate(); });
+  if (typeof ResizeObserver !== 'undefined') {
+    const observer = new ResizeObserver(scheduleUpdate);
+    if (header) observer.observe(header);
+    observer.observe(nav);
+  }
+})();
+</script></main></body></html>
