@@ -1,0 +1,110 @@
+[
+  {
+    "day": "d01",
+    "revision": "r1",
+    "published_at": "2026-10-27T17:08:39.500201+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d01/r1/slides.pdf",
+        "sha256": "0ac7549280d701e2dd7f9e957275c24051cfafe75afe41b982a339da226d0f93",
+        "pages": 141
+      },
+      "homework": {
+        "path": "materials/d01/r1/homework.pdf",
+        "sha256": "5841842e4358f54c8ab33e4410d818505b54f91305065082e94203b6a834f6cf",
+        "pages": 11
+      }
+    }
+  },
+  {
+    "day": "d02",
+    "revision": "r1",
+    "published_at": "2026-10-27T16:33:49.433636+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d02/r1/slides.pdf",
+        "sha256": "2104453cbbd65748718e65ae8a74b810c972a647983c43e54a529f66d77b5eca",
+        "pages": 149
+      },
+      "homework": {
+        "path": "materials/d02/r1/homework.pdf",
+        "sha256": "3263548bc6d8998ec8b2ea7cdf49ce5d3602a71169839f5b45d1ca0147c59e53",
+        "pages": 35
+      }
+    }
+  },
+  {
+    "day": "d03",
+    "revision": "r2",
+    "published_at": "2026-10-29T09:50:23.832747+08:00",
+    "note": "Add Code Review reading and optional Code Smell reference and practice. Slides and homework are unchanged.",
+    "files": {
+      "slides": {
+        "path": "materials/d03/r2/slides.pdf",
+        "sha256": "a6dd834a8cbf395ab036d17a86c7c6eae67e928a42bc56abc64459ead2da34b6",
+        "pages": 88
+      },
+      "homework": {
+        "path": "materials/d03/r2/homework.pdf",
+        "sha256": "70c17ac5d6aecb12ac22fd2e6b97dbcafc67381eb55e4d264bed1ae1e8d754a0",
+        "pages": 14
+      }
+    },
+    "additional_resources": [
+      {
+        "id": "code-review",
+        "type": "pdf",
+        "title": "Code Review",
+        "description": "Further reading on code review and constructive feedback.",
+        "path": "materials/d03/r2/resources/code-review.pdf",
+        "sha256": "2ee27bda4380c863644fa4b8d7867e43a58c8b36846dadafa11b4d61dde417e8",
+        "pages": 16
+      },
+      {
+        "id": "code-smell",
+        "type": "link",
+        "title": "Code Smell Reference & Practice (Optional)",
+        "description": "Browse or practice as needed. No submission or score is required.",
+        "url": "https://smell-java.vercel.app"
+      }
+    ]
+  },
+  {
+    "day": "d04",
+    "revision": "r1",
+    "published_at": "2026-10-29T16:58:49.334296+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d04/r1/slides.pdf",
+        "sha256": "a16ff137dbecdf167d77abf65cdef1a3e78f7daebc555a3e4a7e45de59a17dc3",
+        "pages": 78
+      },
+      "homework": {
+        "path": "materials/d04/r1/homework.pdf",
+        "sha256": "4d19ed2f126d2e907ed3cab2bcd51b7106c99a5032cd35111d3bd94a25da740d",
+        "pages": 14
+      }
+    }
+  },
+  {
+    "day": "d05",
+    "revision": "r1",
+    "published_at": "2026-10-30T17:02:04.595052+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d05/r1/slides.pdf",
+        "sha256": "d513873361bad863eedb0f6fa059681b85a58100e655aae6e509eccb837c29e8",
+        "pages": 94
+      },
+      "homework": {
+        "path": "materials/d05/r1/homework.pdf",
+        "sha256": "97e6056270e5797b22735297193a1c6e058a472b77fdcd60cc90bec46268a1df",
+        "pages": 7
+      }
+    }
+  }
+]
