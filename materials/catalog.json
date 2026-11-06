@@ -1,0 +1,200 @@
+[
+  {
+    "day": "d01",
+    "revision": "r1",
+    "published_at": "2026-10-27T17:08:39.500201+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d01/r1/slides.pdf",
+        "sha256": "0ac7549280d701e2dd7f9e957275c24051cfafe75afe41b982a339da226d0f93",
+        "pages": 141
+      },
+      "homework": {
+        "path": "materials/d01/r1/homework.pdf",
+        "sha256": "5841842e4358f54c8ab33e4410d818505b54f91305065082e94203b6a834f6cf",
+        "pages": 11
+      }
+    }
+  },
+  {
+    "day": "d02",
+    "revision": "r1",
+    "published_at": "2026-10-27T16:33:49.433636+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d02/r1/slides.pdf",
+        "sha256": "2104453cbbd65748718e65ae8a74b810c972a647983c43e54a529f66d77b5eca",
+        "pages": 149
+      },
+      "homework": {
+        "path": "materials/d02/r1/homework.pdf",
+        "sha256": "3263548bc6d8998ec8b2ea7cdf49ce5d3602a71169839f5b45d1ca0147c59e53",
+        "pages": 35
+      }
+    }
+  },
+  {
+    "day": "d03",
+    "revision": "r2",
+    "published_at": "2026-10-29T09:50:23.832747+08:00",
+    "note": "Add Code Review reading and optional Code Smell reference and practice. Slides and homework are unchanged.",
+    "files": {
+      "slides": {
+        "path": "materials/d03/r2/slides.pdf",
+        "sha256": "a6dd834a8cbf395ab036d17a86c7c6eae67e928a42bc56abc64459ead2da34b6",
+        "pages": 88
+      },
+      "homework": {
+        "path": "materials/d03/r2/homework.pdf",
+        "sha256": "70c17ac5d6aecb12ac22fd2e6b97dbcafc67381eb55e4d264bed1ae1e8d754a0",
+        "pages": 14
+      }
+    },
+    "additional_resources": [
+      {
+        "id": "code-review",
+        "type": "pdf",
+        "title": "Code Review",
+        "description": "Further reading on code review and constructive feedback.",
+        "path": "materials/d03/r2/resources/code-review.pdf",
+        "sha256": "2ee27bda4380c863644fa4b8d7867e43a58c8b36846dadafa11b4d61dde417e8",
+        "pages": 16
+      },
+      {
+        "id": "code-smell",
+        "type": "link",
+        "title": "Code Smell Reference & Practice (Optional)",
+        "description": "Browse or practice as needed. No submission or score is required.",
+        "url": "https://smell-java.vercel.app"
+      }
+    ]
+  },
+  {
+    "day": "d04",
+    "revision": "r1",
+    "published_at": "2026-10-29T16:58:49.334296+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d04/r1/slides.pdf",
+        "sha256": "a16ff137dbecdf167d77abf65cdef1a3e78f7daebc555a3e4a7e45de59a17dc3",
+        "pages": 78
+      },
+      "homework": {
+        "path": "materials/d04/r1/homework.pdf",
+        "sha256": "4d19ed2f126d2e907ed3cab2bcd51b7106c99a5032cd35111d3bd94a25da740d",
+        "pages": 14
+      }
+    }
+  },
+  {
+    "day": "d05",
+    "revision": "r1",
+    "published_at": "2026-10-30T17:02:04.595052+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d05/r1/slides.pdf",
+        "sha256": "d513873361bad863eedb0f6fa059681b85a58100e655aae6e509eccb837c29e8",
+        "pages": 94
+      },
+      "homework": {
+        "path": "materials/d05/r1/homework.pdf",
+        "sha256": "97e6056270e5797b22735297193a1c6e058a472b77fdcd60cc90bec46268a1df",
+        "pages": 7
+      }
+    }
+  },
+  {
+    "day": "d06",
+    "revision": "r1",
+    "published_at": "2026-11-02T17:05:20.638946+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d06/r1/slides.pdf",
+        "sha256": "427ad70b3515a7753cacd6ded63af167e26ecd2f0f60ba18bac2b5d672302732",
+        "pages": 124
+      },
+      "homework": {
+        "path": "materials/d06/r1/homework.pdf",
+        "sha256": "4ab044916e20cd6d2d2464cdead5e7f1ac7ac17d34869298ff61c053123fa2c4",
+        "pages": 38
+      }
+    }
+  },
+  {
+    "day": "d07",
+    "revision": "r2",
+    "published_at": "2026-11-03T17:28:02.963333+08:00",
+    "note": "Move the Homework cover from the course slides to the beginning of the Homework slides. Homework requirements are unchanged.",
+    "files": {
+      "slides": {
+        "path": "materials/d07/r2/slides.pdf",
+        "sha256": "29ee5fcd17b4b52af328e6d53da0a1244c940781ac79f81e6a355df878467e01",
+        "pages": 47
+      },
+      "homework": {
+        "path": "materials/d07/r2/homework.pdf",
+        "sha256": "5a4e4cc3d568208a2071ad723b1f24e404d9a08baef9aedea2206a0306d9b3d4",
+        "pages": 5
+      }
+    }
+  },
+  {
+    "day": "d08",
+    "revision": "r1",
+    "published_at": "2026-11-04T16:42:31.767545+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d08/r1/slides.pdf",
+        "sha256": "ecfaa279ecdab6490de8e4cdde733f2e4d9f8a2c974f24ca550d18260bebbb03",
+        "pages": 58
+      },
+      "homework": {
+        "path": "materials/d08/r1/homework.pdf",
+        "sha256": "733f3bef3cdded06747b77cfa1a96ebe762ad56a3a9f8eb2038fddcf9154fbeb",
+        "pages": 6
+      }
+    }
+  },
+  {
+    "day": "d09",
+    "revision": "r1",
+    "published_at": "2026-11-05T16:53:53.482777+08:00",
+    "note": "Initial daily materials.",
+    "files": {
+      "slides": {
+        "path": "materials/d09/r1/slides.pdf",
+        "sha256": "c2e5fc64ad7c7795527042ddd71f97a72025934863cd70b4d5ae3320e111db64",
+        "pages": 49
+      },
+      "homework": {
+        "path": "materials/d09/r1/homework.pdf",
+        "sha256": "2891886dbec5f2a9c2dd3509274b4f371f62b3f9b579578382fe08d75378c4e6",
+        "pages": 7
+      }
+    }
+  },
+  {
+    "day": "d10",
+    "revision": "r1",
+    "published_at": "2026-11-06T16:49:36.038166+08:00",
+    "note": "Day 10 slides and homework with a GitHub Actions diagram and an optional AI prompt.",
+    "files": {
+      "slides": {
+        "path": "materials/d10/r1/slides.pdf",
+        "sha256": "1ac2dfff99eac64d9722551538ab377244ccc1aa65a909e6d71c59e7537fe3e1",
+        "pages": 55
+      },
+      "homework": {
+        "path": "materials/d10/r1/homework.pdf",
+        "sha256": "3db169032e639061fd0ad4714eb6352226786c02315d3babc0a56294b27eb2ee",
+        "pages": 7
+      }
+    }
+  }
+]
